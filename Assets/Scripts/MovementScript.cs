@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class MovementScript : MonoBehaviour
 {
-    //[SerializeField] 
-    //private float acceleration = 75f;
+    // Acceleration and velocity for object movement
     
     [SerializeField] 
     private float acceleration = 5000f;
+    
+    [SerializeField] 
+    private float velocity = 5f;
     
     Rigidbody2D rb2d;
     
@@ -21,5 +23,10 @@ public class MovementScript : MonoBehaviour
     public void Move(Vector2 direction)
     {
         rb2d.AddForce(direction * acceleration * Time.deltaTime);
+    }
+
+    public void AddVelocity(Vector2 velocityDirection)
+    {
+        rb2d.velocity = velocityDirection * velocity; 
     }
 }
