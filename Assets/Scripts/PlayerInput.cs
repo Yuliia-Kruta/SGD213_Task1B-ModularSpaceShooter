@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    // Variables to hold refs to MovementScript and ShootingScript
     private MovementScript movementScript;
     private ShootingScript shootingScript;
 
     void Start()
     {
+        // Getting the components attached to RigidBody
         movementScript = GetComponent<MovementScript>();
         shootingScript = GetComponent<ShootingScript>();
     }
@@ -19,6 +21,7 @@ public class PlayerInput : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         if (horizontalInput != 0.0f)
         {
+            // Moves object if there was a Horizontal input
             movementScript.Move(Vector2.right * horizontalInput);
         }
 
@@ -26,6 +29,7 @@ public class PlayerInput : MonoBehaviour
         {
             if (Input.GetButton("Fire1"))
             {
+                // Calls function Shoot from ShootingScript if the Fire1 button was pressed
                 shootingScript.Shoot();
             }
         }

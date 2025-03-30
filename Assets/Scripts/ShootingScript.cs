@@ -4,11 +4,9 @@ using System.Collections;
 public class ShootingScript : MonoBehaviour
 {
     [SerializeField] private GameObject bullet;
-
-    private float lastFiredTime = 0f;
-
     [SerializeField] private float fireDelay = 1f;
 
+    private float lastFiredTime = 0f;
     private float bulletOffset = 2f;
 
     void Start()
@@ -18,6 +16,9 @@ public class ShootingScript : MonoBehaviour
                        + bullet.GetComponent<Renderer>().bounds.size.y / 2; // Plus half of the bullet size
     }
 
+    /// <summary>
+    /// Spawns a bullet
+    /// </summary>
     public void Shoot()
     {
         float CurrentTime = Time.time;
@@ -31,16 +32,5 @@ public class ShootingScript : MonoBehaviour
 
             lastFiredTime = CurrentTime;
         }
-    }
-
-    /// <summary>
-    /// SampleMethod is a sample of how to use abstraction by
-    /// specification. It converts a provided integer to a float.
-    /// </summary>
-    /// <param name="number">any integer</param>
-    /// <returns>the number parameter as a float</returns>
-    public float SampleMethod(int number)
-    {
-        return number;
     }
 }
