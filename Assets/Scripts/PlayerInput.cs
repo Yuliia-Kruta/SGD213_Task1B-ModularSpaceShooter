@@ -21,10 +21,13 @@ public class PlayerInput : MonoBehaviour
         {
             movementScript.Move(Vector2.right * horizontalInput);
         }
-        
-        if (Input.GetButton("Fire1"))
+
+        if (shootingScript != null)
         {
-            shootingScript.Shoot();
+            if (Input.GetButton("Fire1"))
+            {
+                shootingScript.Shoot();
+            }
         }
     }
 }
